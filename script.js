@@ -41,20 +41,34 @@ function flashRainbowColors(callback) {
 }
 
 // Function to display the cat.gif initially
-function displayCat() {
+function displayCatHeart() {
+    // Clear existing content in the image container
+    document.getElementById('image-container').innerHTML = '';
+
     // Get the container where the image will be displayed
     var imageContainer = document.getElementById('image-container');
-    // Create a new Image element for the cat
-    var catImage = new Image();
-    // Set the source (file path) for the cat image
-    catImage.src = 'cat.gif'; // Assuming the cat image is named "cat.gif"
-    // Set alternative text for the image (for accessibility)
-    catImage.alt = 'Cat';
-    // When the cat image is fully loaded, add it to the image container
-    catImage.onload = function() {
-        imageContainer.appendChild(catImage);
+
+    // Create a new Image element for the cat-heart
+    var catHeartImage = new Image();
+    catHeartImage.src = 'cat-heart.gif'; // Assuming the image is named "cat-heart.gif"
+    catHeartImage.alt = 'Cat Heart';
+
+    // Create a new text element for the message
+    var message = document.createElement('p');
+    message.innerText = "I love you Sweetheart! 💖";
+    message.style.fontFamily = "'Sacramento', cursive";
+    message.style.fontSize = "36px";
+    message.style.color = "black";
+    message.style.marginTop = "20px"; // Adds some spacing from the image
+
+    // When the image is loaded, add it and the message to the container
+    catHeartImage.onload = function() {
+        imageContainer.appendChild(catHeartImage);
+        imageContainer.appendChild(message);
+        document.getElementById('options').style.display = 'none'; // Hide the buttons
     };
 }
+
 
 // Function to display the cat-heart.gif
 function displayCatHeart() {
